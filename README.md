@@ -1,4 +1,4 @@
-### Displaying Weather details ------------
+### Displaying TVShows ------------
 ```
 Description: This app will be useful for listing out the TV Shows.
 This app has been implemented using tvmaze API which fetch the shows details available on server.
