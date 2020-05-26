@@ -1,0 +1,44 @@
+.category {
+    background: #009286;
+    color: #FFD200;
+    font-weight: bold;
+    padding: 5px;
+}
+.item {
+    padding: 0;
+    text-align: center;
+    border: 1px solid #FFF;
+}
+.item img {
+    width: 100%;
+    max-width: 200px;
+}
+.item img, .item .caption {
+    cursor: pointer;
+}
+.item .caption {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.item > div {
+    margin: 15px;
+    padding: 10px;
+}
+.control {
+    text-align: center;
+    display: table;
+}
+.control .tableCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.control span {
+    font-size: 20px;
+    margin-top: 5px;
+    display: block;
+    cursor: pointer;
+    color: yellow;
+}
+.flex-container {
+    display: flex;
+}

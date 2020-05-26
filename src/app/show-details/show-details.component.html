@@ -1,0 +1,20 @@
+<div>
+    <a routerLink="/home" routerLinkActive="active">Home</a> -> Show Details
+</div>
+<div *ngIf="isLoading" class="loader">
+    <span class="spinner-border text-primary"></span>
+</div>
+<div *ngIf="hasError" class="error">An error occurred. Please try again after sometime!</div>
+<ng-container *ngIf="displayDetails">
+<div>
+    <p class="image"><img [src]="showDetails.image.original"></p>
+    <p><span class="caption">Title:</span> {{showDetails.name}}</p>
+    <p><span class="caption">Language:</span> {{showDetails.language}}</p>
+    <p><span class="caption">Average Rating:</span> {{showDetails.rating.average ? showDetails.rating.average : 'NA'}}</p>
+    <p><span class="caption">Genre:</span> {{showDetails.genres.join(', ')}}</p>
+    <p><span class="caption">Official site: </span> <span *ngIf="!showDetails.officialSite">NA</span> <a *ngIf="showDetails.officialSite" [href]="showDetails.officialSite" target="_blank">{{showDetails.officialSite}}</a></p>
+    <p><span class="caption">Premiered:</span> {{showDetails.premiered | date:'MMM d, y'}}</p>
+    <p><span class="caption">Scheduled:</span> {{showDetails.schedule.days.join(', ')}} at {{showDetails.schedule.time}}</p>
+    <p [innerHTML]="showDetails.summary"></p>
+</div>
+</ng-container>

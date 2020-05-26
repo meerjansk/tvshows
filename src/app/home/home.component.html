@@ -1,0 +1,14 @@
+<div class="search">
+    <input type="text" name="search" placeholder="Search" [(ngModel)]="searchInput" (keyup)="keyupEvent()" />
+</div>
+<div *ngIf="isLoading" class="loader"><span class="spinner-border text-primary"></span></div>
+<ng-container *ngIf="searchInput">
+    <app-show-list [searchResults]="searchResults"></app-show-list>
+</ng-container>
+<ng-container *ngIf="!searchInput">
+    <app-show-list [genreInput]="'Drama'" [searchResults]="showsDataDrama"></app-show-list>
+    <hr />
+    <app-show-list [genreInput]="'Comedy'" [searchResults]="showsDataComedy"></app-show-list>
+    <hr />
+    <app-show-list [genreInput]="'Sports'" [searchResults]="showsDataSports"></app-show-list>
+</ng-container>

@@ -1,0 +1,27 @@
+<p class="category">{{genre ? genre : 'Search Results:'}}</p>
+<p *ngIf="showsData.length == 0">No Results found!</p>
+<div *ngIf="isLoading" class="loader"><span class="spinner-border text-primary"></span></div>
+<div *ngIf="hasError" class="error">An unexpected error happend. Please try after sometime!</div>
+<div class="row">
+    <div class="control left col-lg-1">
+        <div class="tableCell">
+            <span (click)="prev()" *ngIf="start > 0">Prev</span>
+        </div>
+    </div>
+    <div class="thumbs col-lg-10">
+        <div class="flex-container">
+            <div class="item col-sm-3" *ngFor="let item of showsData | slice:start:end;">
+                <div [ngClass]="!item.image ? 'no-image' : ''">
+                    <img [routerLink]="['/show-details', item.id]"  [src]="item.image ? item.image.medium : '/assets/images/no_image_available.png'" />
+                    <p [routerLink]="['/show-details', item.id]" class="caption">{{item.name}}</p>
+                    <p>Average Rating: {{item.rating.average ? item.rating.average : 'NA'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control right col-lg-1">
+        <div class="tableCell">
+            <span (click)="next()" *ngIf="end < showsData.length-1">Next</span>
+        </div>
+    </div>
+</div>
